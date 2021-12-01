@@ -1,0 +1,20 @@
+<div>
+  <form [formGroup]="userForm" (ngSubmit)="formSubmit()">
+    <input type="text" name="name" formControlName="name" />
+    <div *ngIf="userForm.controls['name'].errors">Invalid</div>
+    <input type="text" name="pass" formControlName="pass" />
+
+    <input type="text" name="confPass" formControlName="confPass" />
+    <div *ngIf="userForm.controls['confPass'].touched && userForm.errors">
+      Invalid
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<button (click)="updateForm()">update value</button>
+
+<button (click)="removeValidations()">Remove validatiosn</button>
+
+<button (click)="updateValid()">Update validatiosn</button>
